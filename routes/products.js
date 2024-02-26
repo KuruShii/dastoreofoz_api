@@ -35,5 +35,13 @@ products.get('/:id', (req, res) => {
     })
 })
 
+products.get('/popular', (req, res) => {
+    productDB.getPopularProduct((err, products) => {
+        if (err) return res.status(500).json(err);
+
+        res.json(products);
+    })
+})
+
 
 module.exports = products;

@@ -39,9 +39,22 @@ const getProductByID = async(item_id, func) => {
     }
 }
 
+const getPopularProduct = async(func) => {
+    const client = await pool.connect();
+    try {
+        const popular = await client.query('SELECT * FROM items ORDER BY sold DESC LIMIT 3');
+        func(null, popular.rows);
+    } catch(err) {
+        console.log(err);
+        func(err);
+    } finally {
+        client.release();
+    }
+}
+
 module.exports = {
     getProducts,
     getProductsByCategories,
     getProductByID,
-    
+    getPopularProduct,
 }

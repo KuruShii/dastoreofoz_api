@@ -58,4 +58,16 @@
  *              description: No product found
  *          500:
  *              description: A server error
+ * 
+ * /product/popular:
+ *  get:
+ *      summary: Gets the top 3 popular products
+ *      tags: [Product]
+ *      requestBody:
+ *          required: false
+ *      response:
+ *          200:
+ *              description: Returns an array of the top 3 popular products
+ *          500:
+ *              description: A server error
  */
