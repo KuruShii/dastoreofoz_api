@@ -3,6 +3,7 @@ const validator = require('validator');
 
 const products = express.Router();
 const productDB = require('../db/productDB');
+const { Query } = require('pg');
 
 products.get('/',  (req, res) => {
     productDB.getProducts((err, result) => {
@@ -12,7 +13,7 @@ products.get('/',  (req, res) => {
     })
 })
 
-products.get('/:category', (req, res) => {
+products.get('/category/:category', (req, res) => {
     let { category } = req.params;
     category = validator.escape(category);
 
@@ -23,7 +24,7 @@ products.get('/:category', (req, res) => {
     })
 })
 
-products.get('/:id', (req, res) => {
+products.get('/product/:id', (req, res) => {
     let { id } = req.params;
     id = validator.escape(id);
     productDB.getProductByID(id, (err, result) => {

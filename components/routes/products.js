@@ -23,7 +23,7 @@
  * tags:
  *      name: Product
  *      description: The product managing api
- * /product:
+ * /products:
  *  get:
  *      summary: Gets all the products sold
  *      tags: [Product]
@@ -34,7 +34,7 @@
  *              description: An array of all products sold 
  *          500:
  *              description: A server error
- * /product/category:
+ * /products/category/:category:
  *  get:
  *      summary: Gets all products in a certain category
  *      tags: [Product]
@@ -45,7 +45,7 @@
  *              description: An array of all products in that category
  *          500:
  *              description: A server error
- * /product/:id:
+ * /products/product/:id:
  *  get:
  *      summary: Info of a singular product
  *      tags: [Product]
@@ -59,7 +59,7 @@
  *          500:
  *              description: A server error
  * 
- * /product/popular:
+ * /products/popular:
  *  get:
  *      summary: Gets the top 3 popular products
  *      tags: [Product]
