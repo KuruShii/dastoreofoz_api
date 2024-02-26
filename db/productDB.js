@@ -16,7 +16,7 @@ const getProducts = async(func) => {
 const getProductsByCategories = async(category_id, func) => {
     const client = await pool.connect();
     try {
-        const products = await client.query('SELECT * FROM item_categories AS pc, item AS p WHERE pc.category_id = $1 AND p.item_id = pc.item_id', [category_id]);
+        const products = await client.query('SELECT * FROM item_categories AS pc, items AS p WHERE pc.category_id = $1 AND p.item_id = pc.item_id', [category_id]);
         func(null, products.rows);
     } catch (err) {
         console.log(err);
