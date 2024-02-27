@@ -8,8 +8,6 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(helmet());
-
 app.use(bodyParser.json());
 app.use(cookieParser());
 
