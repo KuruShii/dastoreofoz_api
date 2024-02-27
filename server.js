@@ -4,12 +4,16 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+app.use(cors());
+app.use(helmet());
 
 
 const loginRouter = require('./routes/login');
