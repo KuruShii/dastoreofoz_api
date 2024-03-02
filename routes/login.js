@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const validator = require('validator');
+const cors = require('cors');
 
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
@@ -8,6 +9,7 @@ const localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
 const login = express.Router();
+login.use(cors());
 const loginDB = require('../db/userDB');
 
 const sess = new session({

@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(cors());
+app.use(helmet());
 
 const loginRouter = require('./routes/login');
 app.use(loginRouter);
